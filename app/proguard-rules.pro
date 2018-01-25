@@ -23,6 +23,7 @@
 -dontoptimize
 -dontshrink
 -allowaccessmodification
+-ignorewarnings
 -keepattributes *Annotation*
 -keepattributes Exceptions
 -keepattributes JavascriptInterface

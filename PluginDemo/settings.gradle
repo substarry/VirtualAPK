@@ -1,1 +1,4 @@
 include ':app'
+include ':module'
+
+project(':module').projectDir = new File('../module')

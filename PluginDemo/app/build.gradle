@@ -32,13 +32,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    // 在宿主和插件都引入同一个module，且module里使用了dataBinding，会有以下的问题：
+    // 1、如果把module打包为aar，上传到私有的maven，这测试时用的本地maven，需要根据个人电脑配置路径
+    //  然后引入aar，则插件这里不能开dataBinding，否则编译时会出现找不到 com.didi.virtualapk.module.R 的错误
+    //
+    // 2、如果以源码的形式引入，可以打开dataBinding，但是编译后插件没有剔除module
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
     // the following aars are also compiled in host project, so they will be filterd when build plugin apk.
     // but, wo can still visit their Class and Resources.
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.didi.virtualapk:core:0.9.1'
+
+    // 切换 aar 引入 or 源码引入
+    compile 'com.didi.virtual.test:module:0.0.1'
+//    compile project (":module")
 }
 
 apply plugin: 'com.didi.virtualapk.plugin'

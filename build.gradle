@@ -27,6 +27,8 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        // 本地maven路径，需要和module/build.gradle 里配置的路径一样
+        maven { url 'file:///Users/bjhl/maven/' }
     }
 }
 

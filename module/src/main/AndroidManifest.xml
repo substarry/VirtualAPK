@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.didi.virtualapk.module">
+
+    <application
+        android:allowBackup="true">
+
+        <activity
+            android:name="com.didi.virtualapk.module.ModuleTestActivity"
+            android:label="DataBindingTest"/>
+    </application>
+</manifest>

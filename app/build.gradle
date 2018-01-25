@@ -42,6 +42,10 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -52,4 +56,7 @@ dependencies {
 
     //compile project (":CoreLibrary")
 
+    // 切换 aar 引入 or 源码引入
+    compile 'com.didi.virtual.test:module:0.0.1'
+//    compile project (":module")
 }
